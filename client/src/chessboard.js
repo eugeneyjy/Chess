@@ -111,7 +111,7 @@ class Chessboard {
   movePiece(x_from, y_from, x, y) {
     var piece = this.getPieceAt(x_from, y_from);
     var target = this.getPieceAt(x, y);
-    piece.move(this, x, y, target);
+    var ate = piece.move(this, x, y, target);
     if(this.turn == "white"){
       this.clearWhiteEnPassant();
     }else{
@@ -120,6 +120,7 @@ class Chessboard {
     this.changeTurn();
     this.isEnd();
     showTurn();
+    return ate;
   }
 
   moving(x, y) {

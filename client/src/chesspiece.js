@@ -60,7 +60,9 @@ class Chesspiece {
       this.first_move = false; // used first_move
     if(target != null){
       target.alive = false;
+      return 1;
     }
+    return 0;
   }
 
   generateMove(board, dx, dy) {

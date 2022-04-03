@@ -4,7 +4,7 @@ var white_images = [];
 var size;
 var delay = 15;
 var border_width = 10;
-var board_scale = 9;
+var board_scale = 7;
 var offset = border_width/2;
 var minimax = new Minimax(4);
 
