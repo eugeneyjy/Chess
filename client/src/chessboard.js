@@ -108,7 +108,7 @@ class Chessboard {
     }
   }
 
-  movePiece(x_from, y_from, x, y) {
+  movePiece(real, x_from, y_from, x, y) {
     var piece = this.getPieceAt(x_from, y_from);
     var target = this.getPieceAt(x, y);
     var ate = piece.move(this, x, y, target);
@@ -116,6 +116,9 @@ class Chessboard {
       this.clearWhiteEnPassant();
     }else{
       this.clearBlackEnPassant();
+    }
+    if(real) {
+      recordMove(piece, x, y, ate);
     }
     this.changeTurn();
     this.isEnd();
@@ -139,7 +142,7 @@ class Chessboard {
       }else if(this.movingpiece != null){
         if(this.movingpiece.canMove(this, x, y, pointing)){
           // this.grid[this.movingpiece.x][this.movingpiece.y] = null;
-          this.movePiece(this.movingpiece.x, this.movingpiece.y, x, y);
+          this.movePiece(true, this.movingpiece.x, this.movingpiece.y, x, y);
           // if(this.turn == minimax.color){
           //   print(minimax.getMove(board));
           // }

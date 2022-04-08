@@ -37,23 +37,23 @@ function draw() {
   board.show();
   // board.isEnd();
   // print("end");
-  runAI();
+  // runAI();
 
   // noLoop();
 }
 
 function runAI() {
   var from, to;
-  if(delay < 0){
-    if(board.turn == minimax.color){
-      // board = minimax.getMove(board, 0, -Infinity, Infinity);
-      [from,to] = minimax.getMove(board);
-      board.movePiece(from[0], from[1], to[0], to[1]);
-    }
-    delay = 15;
-  }else{
-    delay -= 1;
+  // if(delay < 0){
+  if(board.turn == minimax.color){
+    // board = minimax.getMove(board, 0, -Infinity, Infinity);
+    [from,to] = minimax.getMove(board);
+    setTimeout(()=>board.movePiece(true, from[0], from[1], to[0], to[1]), 5000);
   }
+    // delay = 15;
+  // }else{
+  //   delay -= 1;
+  // }
 }
 
 function mouseClicked() {
@@ -62,9 +62,10 @@ function mouseClicked() {
     var y = floor(map(mouseY, 0+offset, size+offset, 0, 8));
     if(board.promoting == null){
       board.moving(x, y);
+      // console.log("in");
+      runAI();
       // minimax.successcor(board);
       // console.log(minimax.maxValue(board,0));
-      // console.log(board);
     }else{
       board.promotion(x, y);
     }

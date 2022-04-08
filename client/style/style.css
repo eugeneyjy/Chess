@@ -58,7 +58,6 @@ main {
 .side-wrapper {
   background: #d9d9d9;
   margin: 10px 0px;
-  border-radius: 5px;
 }
 
 #turn {
@@ -99,6 +98,32 @@ main {
   width: 100%;
   height: 70%;
   flex-grow: 8;
+}
+
+.move-record-container:nth-child(odd) {
+  background-color: #d9d9d9;
+}
+
+.move-record-container:nth-child(even) {
+  background-color: rgb(240, 240, 240);
+}
+
+.move-record-container {
+  display: flex;
+}
+
+.move-record {
+  display: flex;
+  width: 100%;
+}
+
+.move-record span {
+  flex: 50%;
+}
+
+.numbering {
+  padding-left: 10px;
+  padding-right: 30px;
 }
 
 #toolbar {

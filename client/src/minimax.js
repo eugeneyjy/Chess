@@ -125,14 +125,13 @@ class Minimax {
         curr_move = moving_piece.moves[j];
         move_x = curr_move[0];
         move_y = curr_move[1];
-        ate = temp_board.movePiece(moving_piece.x, moving_piece.y, move_x, move_y);
+        ate = temp_board.movePiece(false, moving_piece.x, moving_piece.y, move_x, move_y);
         if(ate && depth == this.max_depth-1) {
           value = this.minAB(temp_board, depth, alpha, beta);
         } else {
           value = this.minAB(temp_board, depth+1, alpha, beta);
         }
         if(depth == 0 && value > max_value) {
-          print(moving_piece, value, max_value);
           this.possibleMoves = [];
         }
         if(value >= max_value){
@@ -150,8 +149,6 @@ class Minimax {
       }
     }
     if(depth == 0) {
-      print(pieces);
-      print(max_piece, max_j, max_value);
       return [max_piece, max_j];
     }
     return max_value;
@@ -179,7 +176,7 @@ class Minimax {
         curr_move = moving_piece.moves[j];
         move_x = curr_move[0];
         move_y = curr_move[1];
-        ate = temp_board.movePiece(moving_piece.x, moving_piece.y, move_x, move_y);
+        ate = temp_board.movePiece(false, moving_piece.x, moving_piece.y, move_x, move_y);
         value = Math.min(value, this.maxAB(temp_board, depth+1, alpha, beta));
         if(value < alpha){
           return value;
@@ -194,7 +191,7 @@ class Minimax {
     this.possibleMoves = [];
     var piece, move_index;
     this.maxAB(board, 0, -Infinity, Infinity);
-    print(this.possibleMoves);
+    console.log(this.possibleMoves);
     var rng = Math.floor(Math.random() * this.possibleMoves.length);
     [piece, move_index] = [this.possibleMoves[rng].piece, this.possibleMoves[rng].move_index];
     var move_from = [piece.x, piece.y];

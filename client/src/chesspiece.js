@@ -243,6 +243,7 @@ class King extends Chesspiece {
     super(x, y, color, scale);
     this.type = "kg";
     this.value = 10000;
+    this.notation = "K";
 
     if(this.color == "white"){
       this.img = white_images[5];
@@ -357,6 +358,7 @@ class Queen extends Chesspiece {
     super(x, y, color, scale);
     this.type = "qn";
     this.value = 900;
+    this.notation = "Q";
 
     if(this.color == "white"){
       this.img = white_images[0];
@@ -419,6 +421,7 @@ class Rook extends Chesspiece {
     super(x, y, color, scale);
     this.type = "rk";
     this.value = 500;
+    this.notation = "R";
 
     if(this.color == "white"){
       this.img = white_images[1];
@@ -472,6 +475,7 @@ class Knight extends Chesspiece {
     super(x, y, color, scale);
     this.type = "kn";
     this.value = 300;
+    this.notation = "N";
 
     if(this.color == "white"){
       this.img = white_images[3];
@@ -533,6 +537,7 @@ class Bishop extends Chesspiece {
     super(x, y, color, scale);
     this.type = "bs";
     this.value = 300;
+    this.notation = "B";
 
     if(this.color == "white"){
       this.img = white_images[2];
